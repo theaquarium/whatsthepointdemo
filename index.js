@@ -194,7 +194,6 @@ window.addEventListener('load', ()=> {
 	figure.addEventListener('mousemove', event => {
 		if (figureClicked) {
 			const bounds = figure.getBoundingClientRect();
-			// const mouseX = event.clientX - bounds.left;
 			const mouseY = event.clientY - bounds.top;
 			const yCoord = (gY(0) - mouseY) / cX(0.05);
 			pointY = yCoord;
@@ -210,8 +209,7 @@ window.addEventListener('load', ()=> {
 	figure.addEventListener('touchmove', event => {
 		if (figureClicked) {
 			const bounds = figure.getBoundingClientRect();
-			// const mouseX = event.clientX - bounds.left;
-			const mouseY = event.clientY - bounds.top;
+			const mouseY = event.changedTouches[0].clientY - bounds.top;
 			const yCoord = (gY(0) - mouseY) / cX(0.05);
 			pointY = yCoord;
 			point1Dist = Math.sqrt(25 + Math.pow(pointY, 2));
